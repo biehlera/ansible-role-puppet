@@ -25,3 +25,6 @@
     state: "{{ puppet_service_state }}"
     enabled: "{{ puppet_service_enabled }}"
   when: puppet_service_manage
+
+- name: config puppet
+  include: config.yml
