@@ -5,10 +5,9 @@
       insertbefore: BOF
       block: |
         [main]
-        dns_alt_names = {{ item }}
-  loop:
-    - "{{ puppet_server_dnsnames | list }}"
-
+        server = {{ puppet_server_dnsname }}
+        dns_alt_names = puppet, {{ puppet_server_dnsname }}
+  
 - name: enable autosign 
   lineinfile:
     dest: /etc/puppetlabs/puppet/puppet.conf
