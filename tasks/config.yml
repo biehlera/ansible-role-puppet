@@ -7,6 +7,7 @@
         [main]
         server = {{ puppet_server_dnsname }}
         dns_alt_names = puppet, {{ puppet_server_dnsname }}
+        certname = {{ puppet_server_dnsname }}
   
 - name: enable autosign 
   lineinfile:
@@ -20,4 +21,4 @@
       insertbefore: BOF
       block: |
         [master]
-        certname = {{ puppet_server_dnsname }}
+        
