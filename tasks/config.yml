@@ -5,7 +5,6 @@
       insertbefore: BOF
       block: |
         [main]
-        certname = {{ puppet_server_dnsname }}
         server = {{ puppet_server_dnsname }}
         dns_alt_names = puppet, {{ puppet_server_dnsname }}
   
@@ -14,3 +13,11 @@
     dest: /etc/puppetlabs/puppet/puppet.conf
     regexp: autosign.*
     line: autosign = {{ autosign }}
+
+- name: certname on master 
+  blockinfile:
+      dest: '/etc/puppetlabs/puppet/puppet.conf'
+      insertbefore: BOF
+      block: |
+        [master]
+        certname = {{ puppet_server_dnsname }}
