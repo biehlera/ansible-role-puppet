@@ -5,6 +5,7 @@
       insertbefore: BOF
       block: |
         [main]
+        certname = {{ puppet_server_dnsname }}
         server = {{ puppet_server_dnsname }}
         dns_alt_names = puppet, {{ puppet_server_dnsname }}
   
